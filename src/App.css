@@ -1,19 +1,89 @@
+/* .operation{
+  margin: 20px 500px ;
+  width: 400px;
+  display: flex;
+  flex-direction: row;
+  border: #9fb0d3 5px solid;
+}
+
+/* h1{
+  color: #9e3838;
+} */
+
+/* .boxOne, .boxOne{
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  border: #97a6c2 0.5px solid;
+}
+
+.btn{
+  padding: 10px;
+  margin: 10px;
+  background-color: rgb(199, 145, 226);
+  color: white;
+  border: darkgray 0.5px solid;
+  border-radius: 5px;
+}
+
+.btnDel{
+  padding: 10px;
+  margin: 10px;
+  background-color: rgb(150, 31, 31);
+  color: white;
+  border: darkgray 0.5px solid;
+  border-radius: 5px;
+}
+
+.input{
+  height: 30px;
+  margin: 10px;
+}
+
+.newBox{
+  margin: 20px;
+  padding: 10px;
+  color: #61dafb;
+  display: inline-block
+}
+
+.Button{
+  margin:20px;
+}
+
+.direction{
+  margin-left: 50px;
+}
+
+.alignDiv{
+  width: 50px;
+}
+
+.form{
+  margin-left: 580px;
+  height: 200px;
+  width: 200px;
+  border: #282c34 1px solid;
+  align-items: center;
+}
+
+
 .App {
   text-align: center;
-}
+} */
 
-.App-logo {
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
-}
+} */
 
-@media (prefers-reduced-motion: no-preference) {
+/* @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
+} */
 
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -26,13 +96,59 @@
 
 .App-link {
   color: #61dafb;
-}
+} */
 
-@keyframes App-logo-spin {
+/* @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
+} */
+
+
+.ecom{
+  height: 300px;
+  width: 200px;
+  margin: 5px;
+  border: 1px solid #c7c7c7;
+}
+
+.parent{
+  display: flex;
+}
+
+.boxContent{
+  font-weight: bold;
+}
+
+.icons{
+  margin: 5px;
+  color: green;
+}
+
+.cartIcon{
+  float: left;
+}
+
+.heartIcon{
+  float: right;
+}
+
+.count{
+  height: 40px;
+  width: 40px;
+}
+
+.maincountButton{
+  height: 40px;
+  width: 40px;
+  margin-left: 10px;
+}
+
+.CartList{
+  height: 350px;
+  width: 250px;
+  border: 1px solid grey;
 }
