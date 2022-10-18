@@ -8,6 +8,8 @@ import UserDetails from './Component/UserDetails';
 import React, {useState, useEffect} from 'react'
 import EcomBox from './Component/EcomBox';
 import EcomButton from './Component/EcomButton';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faXmarkCircle } from '@fortawesome/free-solid-svg-icons'
 
 const App = ()=> {
 
@@ -80,29 +82,69 @@ const App = ()=> {
 
  const [count, setCount] = useState(0)
  const [listCart, setListCart] = useState([])
+ const [objCart, setObjCart] = useState({})
 
+//Count of Favorite
  const incCount = (num)=>{
   setCount(num + count)
 }
 
 //Show the list while clicking cart icon of different items
 //search => [...search, items] = to add items in the array
-const addList = (items)=>{
-  setListCart(addCart => [...addCart, items])
+// const addList = (items)=>{
+//   setListCart(addCart => [...addCart, items])
+// }
+const getList = (items) =>{
+  // addList(cart)
+  setListCart(state => [...state, items])
+  // countCart()
 }
-const getList = (cart) =>{
-  addList(cart)
-  console.log({cart})  
-}
+useEffect(()=>{
+  countCart()
+},[listCart])
 
 
-// const countCart = () =>{
-  // const countList = {}
-//   listCart.forEach(element => {
-  // countList[element] = (countList[element] || 0) + 1;
+const countCart = () =>{
+  const countList = {}
+  listCart.forEach(element => {
+  countList[element] = (countList[element] || 0) + 1;
+  })
+  setObjCart(countList)
+}
+
+const objtoKeys = Object.keys(objCart)
+const objtoValue = Object.values(objCart)
+
+const decCartCount = (value)=>{
+  const cartArr = [...listCart]
+  for(let i=0; i<cartArr.length; i++){
+    if(cartArr[i]===value){
+      cartArr.splice(i, 1)
+      break;
+    }}
+  setListCart(cartArr)
+    console.log(cartArr)
+}
+
+//It removes all items so we don't use it intead use splice to remove one item at a time
+//   const cart = listCart.filter((item,id)=>{
+//     if(item!==value){
+//       return item
+//     }
 //   })
+//   console.log(cart)
 // }
 
+
+
+const displayCart = () =>{
+  if(listCart.length===0){
+    return 'none'
+  }else{
+    return 'block'
+  }
+  
+}
 
   return (
     <div className='parent'>
@@ -110,13 +152,29 @@ const getList = (cart) =>{
         return (<EcomBox item={item} incCount={incCount} getList={getList} />)
       })}
       <button className='maincountButton'>{count}</button>
-      <div className='CartList'>
-        <h1>Cart List</h1>
-        <ol>{listCart.map((item, id)=>{
-          return <li>{item}</li>
-        })}</ol>
+      <div className='CartList' style={{display:displayCart()}}>
+        <table>
+          <tr>
+            <th>Cart List</th>
+            <th>Cart Count</th>
+          </tr>
+          <tr>
+            <td>
+              {objtoKeys.map((item, id)=>{
+                return <li>{item}</li>
+              })}
+            </td>
+            <td>
+              {objtoValue.map((item, id)=>{
+                return <li>{item}<FontAwesomeIcon icon={faXmarkCircle} onClick={()=>{decCartCount(objtoKeys[id])}} color='red'/></li>
+              })}
+            </td>
+          </tr>  
+        </table>
+        
       </div>
-      
+      {/* to see the object in the browser
+      {JSON.stringify(objCart)} */}
     </div>
     // <div>
     //    {count}
